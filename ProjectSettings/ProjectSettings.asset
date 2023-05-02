@@ -156,7 +156,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.unity.TrainingDay2016
-    Standalone: unity.DefaultCompany.UniteEurope16TrainingDay
+    Standalone: com.DefaultCompany.Adventure-Game-Sample
     Tizen: com.unity.TrainingDay2016
     iPhone: com.unity.TrainingDay2016
     tvOS: com.unity.TrainingDay2016
