@@ -1668,7 +1668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   condition: {fileID: 114000012888731470, guid: fd02464d008c790478d9826aba7c7847,
     type: 2}
-  satisfied: 1
+  satisfied: 0
 --- !u!114 &1101621493
 MonoBehaviour:
   m_ObjectHideFlags: 0

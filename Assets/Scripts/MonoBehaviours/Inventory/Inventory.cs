@@ -32,10 +32,11 @@ public class Inventory : MonoBehaviour
                 itemsQuantity[i].text = count[i].ToString();
                 return;
             }
-            else if (itemsQuantity[i].text == itemToAdd.name)
+            else if (itemsDesc[i].text == itemToAdd.name)
             {
                 count[i]++;
                 itemsQuantity[i].text = count[i].ToString();
+                return;
             }
         }
     }
