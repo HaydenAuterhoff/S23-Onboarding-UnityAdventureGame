@@ -8,10 +8,12 @@ public class InventoryEditor : Editor
     private SerializedProperty itemImagesProperty;                      // Represents the array of Image components to display the Items.
     private SerializedProperty itemsProperty;                           // Represents the array of Items.
     private SerializedProperty itemsPropertyDescrption;
+    private SerializedProperty itemsPropertyQuantity;
 
     private const string inventoryPropItemImagesName = "itemImages";    // The name of the field that is an array of Image components.
     private const string inventoryPropItemsName = "items";              // The name of the field that is an array of Items.
     private const string inventoryPropItemsDesc = "itemsDesc";
+    private const string inventoryPropItemQuantity = "itemsQuantity";
 
     private void OnEnable ()
     {
@@ -19,6 +21,7 @@ public class InventoryEditor : Editor
         itemImagesProperty = serializedObject.FindProperty (inventoryPropItemImagesName);
         itemsProperty = serializedObject.FindProperty (inventoryPropItemsName);
         itemsPropertyDescrption = serializedObject.FindProperty(inventoryPropItemsDesc);
+        itemsPropertyQuantity = serializedObject.FindProperty(inventoryPropItemQuantity);
     }
 
 
@@ -52,6 +55,7 @@ public class InventoryEditor : Editor
             EditorGUILayout.PropertyField (itemImagesProperty.GetArrayElementAtIndex (index));
             EditorGUILayout.PropertyField (itemsProperty.GetArrayElementAtIndex (index));
             EditorGUILayout.PropertyField (itemsPropertyDescrption.GetArrayElementAtIndex(index));
+            EditorGUILayout.PropertyField (itemsPropertyQuantity.GetArrayElementAtIndex(index));
         }
 
         EditorGUI.indentLevel--;

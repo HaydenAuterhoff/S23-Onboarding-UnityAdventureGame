@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    //public TextMeshProUGUI itemsDesc;
+    public TMP_Text[] itemsQuantity = new TMP_Text[numItemSlots];
     public TMP_Text[] itemsDesc = new TMP_Text[numItemSlots];
     public Image[] itemImages = new Image[numItemSlots];    // The Image components that display the Items.
     public Item[] items = new Item[numItemSlots];           // The Items that are carried by the player.
@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
 
     public const int numItemSlots = 4;                      // The number of items that can be carried.  This is a constant so that the number of Images and Items are always the same.
 
+    int[] count = new int[numItemSlots];
 
     // This function is called by the PickedUpItemReaction in order to add an item to the inventory.
     public void AddItem(Item itemToAdd)
@@ -27,7 +28,14 @@ public class Inventory : MonoBehaviour
                 itemImages[i].sprite = itemToAdd.sprite;
                 itemImages[i].enabled = true;
                 itemsDesc[i].text = itemToAdd.name;
+                count[i] = 1;
+                itemsQuantity[i].text = count[i].ToString();
                 return;
+            }
+            else if (itemsQuantity[i].text == itemToAdd.name)
+            {
+                count[i]++;
+                itemsQuantity[i].text = count[i].ToString();
             }
         }
     }
@@ -47,6 +55,8 @@ public class Inventory : MonoBehaviour
                 itemImages[i].sprite = null;
                 itemImages[i].enabled = false;
                 itemsDesc[i].text = "";
+                count[i] = 0;
+                itemsQuantity[i].text = count[i].ToString();
                 return;
             }
         }
