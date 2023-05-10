@@ -7,17 +7,18 @@ public class InventoryEditor : Editor
     private bool[] showItemSlots = new bool[Inventory.numItemSlots];    // Whether the GUI for each Item slot is expanded.
     private SerializedProperty itemImagesProperty;                      // Represents the array of Image components to display the Items.
     private SerializedProperty itemsProperty;                           // Represents the array of Items.
-
+    private SerializedProperty itemsPropertyDescrption;
 
     private const string inventoryPropItemImagesName = "itemImages";    // The name of the field that is an array of Image components.
     private const string inventoryPropItemsName = "items";              // The name of the field that is an array of Items.
-
+    private const string inventoryPropItemsDesc = "itemsDesc";
 
     private void OnEnable ()
     {
         // Cache the SerializedProperties.
         itemImagesProperty = serializedObject.FindProperty (inventoryPropItemImagesName);
         itemsProperty = serializedObject.FindProperty (inventoryPropItemsName);
+        itemsPropertyDescrption = serializedObject.FindProperty(inventoryPropItemsDesc);
     }
 
 
@@ -50,6 +51,7 @@ public class InventoryEditor : Editor
         {
             EditorGUILayout.PropertyField (itemImagesProperty.GetArrayElementAtIndex (index));
             EditorGUILayout.PropertyField (itemsProperty.GetArrayElementAtIndex (index));
+            EditorGUILayout.PropertyField (itemsPropertyDescrption.GetArrayElementAtIndex(index));
         }
 
         EditorGUI.indentLevel--;

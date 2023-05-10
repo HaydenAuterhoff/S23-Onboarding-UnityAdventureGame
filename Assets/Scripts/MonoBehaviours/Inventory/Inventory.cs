@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    //public TextMeshProUGUI itemsDesc;
+    public TMP_Text[] itemsDesc = new TMP_Text[numItemSlots];
     public Image[] itemImages = new Image[numItemSlots];    // The Image components that display the Items.
     public Item[] items = new Item[numItemSlots];           // The Items that are carried by the player.
-
+    //public Text[] itemsDesc = new Text[numItemSlots];
 
     public const int numItemSlots = 4;                      // The number of items that can be carried.  This is a constant so that the number of Images and Items are always the same.
 
@@ -23,6 +26,7 @@ public class Inventory : MonoBehaviour
                 items[i] = itemToAdd;
                 itemImages[i].sprite = itemToAdd.sprite;
                 itemImages[i].enabled = true;
+                itemsDesc[i].text = itemToAdd.name;
                 return;
             }
         }
@@ -42,6 +46,7 @@ public class Inventory : MonoBehaviour
                 items[i] = null;
                 itemImages[i].sprite = null;
                 itemImages[i].enabled = false;
+                itemsDesc[i].text = "";
                 return;
             }
         }
