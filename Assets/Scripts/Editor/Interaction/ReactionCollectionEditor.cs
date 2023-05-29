@@ -26,7 +26,7 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
     private const string reactionsPropName = "reactions";   // Name of the field for the array of Reactions.
 
 
-    private readonly float verticalSpacing = EditorGUIUtility.standardVerticalSpacing;
+    private float verticalSpacing;
                                                             // Caching the vertical spacing between GUI elements.
 
 
@@ -43,6 +43,8 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
 
         // Set the array of types and type names of subtypes of Reaction.
         SetReactionNamesArray ();
+
+        verticalSpacing = EditorGUIUtility.standardVerticalSpacing;
     }
 
 
